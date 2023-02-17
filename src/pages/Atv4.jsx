@@ -26,25 +26,31 @@ export default function Atv3() {
     }
 
     return (
-        <form onSubmit={e => calcularParcelas(e)} className="w-60 text-center flex flex-col gap-2">
-            <small>
-                Faça um script que leia o nome e as três notas de uma disciplina de um aluno e ao final
+        <form onSubmit={e => calcularParcelas(e)} className="w-96 flex flex-col gap-2">
+            <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium text-center">
+                    Clique para ver o enunciado
+                </div>
+                <div className="collapse-content">
+                    <p>Faça um script que leia o nome e as três notas de uma disciplina de um aluno e ao final
                 escreva o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para
-                aprovação é igual ou superior a 7.
-            </small>
-            <label className="text-left">Digite seu nome:  </label>
-            <input type="text" ref={nome} />
+                        aprovação é igual ou superior a 7.</p>
+                </div>
+            </div>
+            <label className="text-left label-text">Digite seu nome:  </label>
+            <input className="input" type="text" ref={nome} />
 
-            <label className="text-left">Digite a primeira nota:  </label>
-            <input type="text" ref={nota1} />
+            <label className="text-left label-text">Digite a primeira nota:  </label>
+            <input className="input" type="text" ref={nota1} />
 
-            <label className="text-left">Digite a segunda nota:  </label>
-            <input type="text" ref={nota2} />
+            <label className="text-left label-text">Digite a segunda nota:  </label>
+            <input className="input" type="text" ref={nota2} />
 
-            <label className="text-left">Digite terceira nota:  </label>
-            <input type="text" ref={nota3} />
+            <label className="text-left label-text">Digite terceira nota:  </label>
+            <input className="input" type="text" ref={nota3} />
 
-            <button>Calcular</button>
+            <button className="btn w-fit mx-auto">Calcular</button>
             {resultado !== undefined ? <h1>O aluno foi {nome.current.value} {resultado}</h1> : null}
         </form>
     );

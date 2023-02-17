@@ -16,19 +16,25 @@ export default function Atv2() {
         }
     }
     return (
-        <form onSubmit={e => calculateSum(e)} className="w-60 text-center flex flex-col gap-2">
-            <small>
-                Faça um script que leia dois valores inteiros A e B, se os valores forem iguais, os mesmos
-                devem ser somados, caso contrário multiplique A por B, ao final do cálculo atribuir o
-                resultado para uma variável C e exibir o resultado.
-            </small>
-            <label className="text-left">Digite o primeiro número:  </label>
-            <input type="text" ref={intA} />
+        <form onSubmit={e => calculateSum(e)} className="w-96 flex flex-col gap-2">
+            <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium text-center">
+                    Clique para ver o enunciado
+                </div>
+                <div className="collapse-content">
+                    <p>Faça um script que leia dois valores inteiros A e B, se os valores forem iguais, os mesmos
+                        devem ser somados, caso contrário multiplique A por B, ao final do cálculo atribuir o
+                        resultado para uma variável C e exibir o resultado.</p>
+                </div>
+            </div>
+            <label className="text-left label-text">Digite o primeiro número:  </label>
+            <input className="input" type="text" ref={intA} />
 
-            <label className="text-left mt-4">Digite o segundo número: </label>
-            <input type="text" ref={intB} />
+            <label className="text-left label-text mt-4">Digite o segundo número: </label>
+            <input className="input" type="text" ref={intB} />
 
-            <button>Calcular</button>
+            <button className="btn w-fit mx-auto">Calcular</button>
             {intC !== undefined ? <h1>A soma é: {intC}</h1> : null}
         </form>
     );

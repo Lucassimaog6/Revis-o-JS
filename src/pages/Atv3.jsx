@@ -17,26 +17,30 @@ export default function Atv3() {
     }
 
     return (
-        <form onSubmit={e => calcularParcelas(e)} className="w-60 text-center flex flex-col gap-2">
-            <small>
-                A partir do preço à vista de um determinado produto, calcule o preço total a pagar e o valor
+        <form onSubmit={e => calcularParcelas(e)} className="w-96 flex flex-col gap-2">
+            <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium text-center">
+                    Clique para ver o enunciado
+                </div>
+                <div className="collapse-content">
+                    <p> A partir do preço à vista de um determinado produto, calcule o preço total a pagar e o valor
                 da prestação mensal, referentes ao pagamento parcelado. Se o pagamento for parcelado
                 em 3 vezes deve ser dado um acréscimo de 10% no total a ser pago. Se o parcelamento
                 for em 5 vezes, o acréscimo será de 20%. Lembrando que são apenas as 2 opções para
-                parcelamento.
-            </small>
-            <label className="text-left">Digite o preço:  </label>
-            <input type="text" ref={preco} />
+                        parcelamento.</p>
+                </div>
+            </div>
+            <label className="text-left label-text">Digite o preço:  </label>
+            <input className="input" type="text" ref={preco} />
 
-            <label htmlFor="atv">
-                <select defaultValue="disabled" name="atvidades" id="atv" ref={qnt_meses}>
-                    <option value="disabled" disabled>Selecione uma opção de parcelamento: </option>
-                    <option value="3">3 Vezes</option>
-                    <option value="5">5 Vezes</option>
-                </select>
-            </label>
+            <select className="select w-full" defaultValue="disabled" name="atvidades" id="atv" ref={qnt_meses}>
+                <option value="disabled" disabled>Selecione uma opção de parcelamento: </option>
+                <option value="3">3 Vezes</option>
+                <option value="5">5 Vezes</option>
+            </select>
 
-            <button>Calcular</button>
+            <button className="btn w-fit mx-auto">Calcular</button>
             {parcelas !== undefined ? <h1>Serão {qnt_meses.current.value} parcelas de R${parcelas}</h1> : null}
         </form>
     );

@@ -47,15 +47,21 @@ export default function Atv3() {
     }
 
     return (
-        <form onSubmit={e => calcularParcelas(e)} className="w-60 text-center flex flex-col gap-2">
-            <small>
-                Faça um script que receba um número de 1 a 12 e retorne com o nome do respectivo mês
-                referente ao número. Ex - Entrou com número 1 saída: Janeiro e assim sucessivamente.
-            </small>
-            <label className="text-left">Digite o número:  </label>
-            <input type="text" ref={numero} />
+        <form onSubmit={e => calcularParcelas(e)} className="w-96 flex flex-col gap-2">
+            <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium text-center">
+                    Clique para ver o enunciado
+                </div>
+                <div className="collapse-content">
+                    <p>Faça um script que receba um número de 1 a 12 e retorne com o nome do respectivo mês
+                        referente ao número. Ex - Entrou com número 1 saída: Janeiro e assim sucessivamente.</p>
+                </div>
+            </div>
+            <label className="text-left label-text">Digite o número:  </label>
+            <input className="input" type="text" ref={numero} />
 
-            <button>Calcular</button>
+            <button className="btn w-fit mx-auto">Calcular</button>
             {resultado !== undefined ? <h1>O mês {numero.current.value} é o {resultado}</h1> : null}
         </form>
     );
